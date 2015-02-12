@@ -8,13 +8,16 @@
 import scrapy
 
 
-class LinkedinInboxExporterItem(scrapy.Item):
+class InboxItem(scrapy.Item):
     # define the fields for your item here like:
     folder = scrapy.Field()
-    from = scrapy.Field()
-    fromProfileUrl = scrapy.Field()
-    to = scrapy.Field()
-    toProfileUrl = scrapy.Field()
+    id = scrapy.Field()
+    sender_name = scrapy.Field()
+    sender_profile_url = scrapy.Field()
+    to_name = scrapy.Field()
+    to_profile_url = scrapy.Field()
+    subject = scrapy.Field()
     date = scrapy.Field()
-    message = scrapy.Field()
+    is_replied = scrapy.Field()
+    body = scrapy.Field()
     pass
