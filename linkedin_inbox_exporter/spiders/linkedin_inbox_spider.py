@@ -46,7 +46,7 @@ class LinkedinInboxSpider(scrapy.Spider):
         response_json = json.loads(response.body)
         message = response_json['content']['message']
 
-        item = items.InboxItem(id = message['itemId'], body = message['bodyParts'][0]['text'], folder = message['folder'], date = message['createDate'],
+        item = items.InboxItem(id = message['itemId'], body = message['bodyParts'][0]['text'], folder = message['folder'], date = message['createDate'], subject = message['subject'],
             sender_name = message['sender']['name'], sender_profile_url = message['sender'].get('link_profile'), 
             to_name = message['recipients'][0]['name'], to_profile_url = message['recipients'][0].get('link_profile'), 
             is_replied = message['isReplied'])
