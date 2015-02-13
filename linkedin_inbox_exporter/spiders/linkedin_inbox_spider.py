@@ -40,7 +40,7 @@ class LinkedinInboxSpider(scrapy.Spider):
         next_page_urls = self.full_urls(response.css("button.next-page::attr(data-url)").extract())
         next_page_requests = self.make_inbox_page_requests(next_page_urls)
         
-        return message_detail_requests
+        return message_detail_requests + next_page_requests
 
     def parse_detail_json(self, response):
         response_json = json.loads(response.body)
