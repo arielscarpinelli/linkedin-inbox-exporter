@@ -23,7 +23,7 @@ class LinkedinInboxSpider(scrapy.Spider):
 
     def after_login(self, response):
         # check login succeed before going on
-        if not "home" in response.url:
+        if not "home" in response.url and not "/hp" in response.url:
             self.log("Login failed", level=scrapy.log.ERROR)
             return
 
